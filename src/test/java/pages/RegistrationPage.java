@@ -27,7 +27,7 @@ public class RegistrationPage {
     CalendarComponent calendarComponent = new CalendarComponent();
 
     public RegistrationPage openPage() {
-        open("https://demoqa.com/automation-practice-form");
+        open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
