@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
+import static io.qameta.allure.Allure.step;
+
 @Tag("demoqa")
 public class PageObjectsTests extends TestBase {
 
@@ -11,8 +13,11 @@ public class PageObjectsTests extends TestBase {
 
     @Test
     void practiceFormTest() {
-        registrationPage.openPage()
-                .setFirstName("Maria")
+        step("Открыть форму регистрации", () -> {
+            registrationPage.openPage();});
+
+        step("Заполнить форму", () -> {
+        registrationPage.setFirstName("Maria")
                 .setLastName("Ivanova")
                 .setEmail("maria@yandex.ru")
                 .setGender("Female")
@@ -24,8 +29,8 @@ public class PageObjectsTests extends TestBase {
                 .setAddress("Russia")
                 .setState("NCR")
                 .setCity("Delhi")
-                .submit();
-
+                .submit();});
+        step("Проверить данные", () -> {
         registrationPage.checkResult("Student Name","Maria Ivanova")
                 .checkResult("Student Email","maria@yandex.ru")
                 .checkResult("Gender","Female")
@@ -35,40 +40,45 @@ public class PageObjectsTests extends TestBase {
                 .checkResult("Hobbies","Sports")
                 .checkResult("Picture","picture.jpg")
                 .checkResult("Address","Russia")
-                .checkResult("State and City","NCR Delhi");
+                .checkResult("State and City","NCR Delhi");});
 
     }
     @Test
 
     void minimalFormTest() {
-        registrationPage.openPage()
-                .setFirstName("Maria")
+        step("Открыть форму регистрации", () -> {
+        registrationPage.openPage();});
+
+        step("Заполнить форму", () -> {
+        registrationPage .setFirstName("Maria")
                 .setLastName("Ivanova")
                 .setEmail("maria@yandex.ru")
                 .setGender("Female")
                 .setUserNumber("1234567891")
                 .setDateOfBirth("10", "February", "1995")
-                .submit();
-
+                .submit();});
+        step("Проверить данные", () -> {
         registrationPage.checkResult("Student Name","Maria Ivanova")
                 .checkResult("Student Email","maria@yandex.ru")
                 .checkResult("Gender","Female")
                 .checkResult("Mobile","1234567891")
-                .checkResult("Date of Birth","10 February,1995");
+                .checkResult("Date of Birth","10 February,1995");});
 
     }
     @Test
 
     void withoutUserNumberTest() {
-        registrationPage.openPage()
-                .setFirstName("Maria")
+        step("Открыть форму регистрации", () -> {
+        registrationPage.openPage();});
+        step("Заполнить форму", () -> {
+        registrationPage.setFirstName("Maria")
                 .setLastName("Ivanova")
                 .setEmail("maria@yandex.ru")
                 .setGender("Female")
                 .setDateOfBirth("10", "February", "1995")
-                .submit();
-
-        registrationPage.withoutNumberCheck();
+                .submit();});
+        step("Проверить данные", () -> {
+        registrationPage.withoutNumberCheck();});
 
     }
     }
