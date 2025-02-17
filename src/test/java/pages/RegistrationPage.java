@@ -2,10 +2,13 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.devtools.v121.dom.DOM;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+import static java.awt.SystemColor.window;
 
 public class RegistrationPage {
 
