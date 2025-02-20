@@ -13,9 +13,11 @@ import java.util.Map;
 public class TestBase {
     @BeforeAll
     static void beforeAll() {
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browserVersion = System.getProperty("browserVersion", "100");
         Configuration.browserSize = System.getProperty("browserResolution", "1920x1080");
         Configuration.pageLoadStrategy = "eager";
-        Configuration.baseUrl = System.getProperty("baseUrl", "https://demoqa.com");
+        Configuration.baseUrl = "https://demoqa.com";
         Configuration.remote = "https://user1:1234@"+ System.getProperty("webDriverHost", "selenoid.autotests.cloud") +"/wd/hub";
 
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
