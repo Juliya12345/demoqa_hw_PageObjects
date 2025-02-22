@@ -106,6 +106,7 @@ public class RegistrationPage {
 
 
     public RegistrationPage submit() {
+        submitButton.scrollTo();
         submitButton.click();
 
         return this;
