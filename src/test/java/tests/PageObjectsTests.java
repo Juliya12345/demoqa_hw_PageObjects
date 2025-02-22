@@ -14,7 +14,9 @@ public class PageObjectsTests extends TestBase {
     @Test
     void practiceFormTest() {
         step("Открыть форму регистрации", () -> {
-            registrationPage.openPage();});
+            registrationPage.openPage();
+            registrationPage.removeBanner(); });
+
 
         step("Заполнить форму", () -> {
         registrationPage.setFirstName("Maria")
@@ -47,7 +49,8 @@ public class PageObjectsTests extends TestBase {
 
     void minimalFormTest() {
         step("Открыть форму регистрации", () -> {
-        registrationPage.openPage();});
+        registrationPage.openPage();
+        registrationPage.removeBanner();});
 
         step("Заполнить форму", () -> {
         registrationPage .setFirstName("Maria")
@@ -69,7 +72,8 @@ public class PageObjectsTests extends TestBase {
 
     void withoutUserNumberTest() {
         step("Открыть форму регистрации", () -> {
-        registrationPage.openPage();});
+        registrationPage.openPage();
+        registrationPage.removeBanner();});
         step("Заполнить форму", () -> {
         registrationPage.setFirstName("Maria")
                 .setLastName("Ivanova")
